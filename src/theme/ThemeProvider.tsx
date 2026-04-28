@@ -7,7 +7,7 @@ type ThemeContextValue = { mode: ThemeMode; colors: ThemeColors };
 
 const ThemeContext = createContext<ThemeContextValue | null>(null);
 
-function resolve(scheme: ColorSchemeName): ThemeMode {
+function resolve(scheme: ColorSchemeName | null | undefined): ThemeMode {
   return scheme === 'dark' ? 'dark' : 'light';
 }
 
