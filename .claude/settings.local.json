@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cp -r /Users/massivemusic/Document/experiment/wom/src /tmp/wom-src)",
+      "Bash(cp /Users/massivemusic/Document/experiment/wom/.env /tmp/wom-env)",
+      "Bash(cp /Users/massivemusic/Document/experiment/wom/.env.example /tmp/wom-env-example)",
+      "Bash(cp /Users/massivemusic/Document/experiment/wom/SRS_WOM_Mobile_App.md /tmp/wom-srs.md)",
+      "Bash(rtk ls *)"
+    ]
+  }
+}
