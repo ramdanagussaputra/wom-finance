@@ -22,11 +22,13 @@ function StarRatingImpl({ value, size = 12, showNumber = true }: Props) {
           return (
             <Text
               key={i}
-              style={{
-                fontSize: size,
-                color: filled ? colors.star : colors.border,
-                marginRight: 1,
-              }}
+              style={[
+                styles.star,
+                {
+                  fontSize: size,
+                  color: filled ? colors.star : colors.border,
+                },
+              ]}
             >
               {'★'}
             </Text>
@@ -45,6 +47,7 @@ function StarRatingImpl({ value, size = 12, showNumber = true }: Props) {
 const styles = StyleSheet.create({
   row: { flexDirection: 'row', alignItems: 'center' },
   stars: { flexDirection: 'row', alignItems: 'center' },
+  star: { marginRight: 1 },
   num: { marginLeft: 4, fontWeight: '600' },
 });
 

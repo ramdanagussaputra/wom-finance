@@ -9,7 +9,7 @@ const SECRET = JWT_SECRET || 'demo-secret';
 function base64UrlEncode(str: string): string {
   const wordArray = EncUtf8.parse(str);
   return EncBase64.stringify(wordArray)
-    .replace(/=+$/, '')
+    .replace(/[=]+$/, '')
     .replace(/\+/g, '-')
     .replace(/\//g, '_');
 }
@@ -21,7 +21,7 @@ function base64UrlDecode(str: string): string {
 
 function sign(input: string): string {
   const sig = HmacSHA256(input, SECRET).toString(EncBase64);
-  return sig.replace(/=+$/, '').replace(/\+/g, '-').replace(/\//g, '_');
+  return sig.replace(/[=]+$/, '').replace(/\+/g, '-').replace(/\//g, '_');
 }
 
 export type JwtPayload = { email: string; iat: number; exp: number };

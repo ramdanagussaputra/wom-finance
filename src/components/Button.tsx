@@ -50,14 +50,10 @@ export function Button({ title, onPress, loading, disabled, variant = 'primary',
         accessibilityState={{ disabled: isDisabled }}
         style={[
           styles.btn,
-          variant === 'primary' && {
-            shadowColor: colors.primary,
-            shadowOpacity: 0.35,
-            shadowRadius: 12,
-            shadowOffset: { width: 0, height: 6 },
-            elevation: 6,
-          },
-          { backgroundColor: bg, borderColor, opacity: isDisabled ? 0.5 : 1 },
+          variant === 'primary' && styles.primaryShadow,
+          variant === 'primary' && { shadowColor: colors.primary },
+          { backgroundColor: bg, borderColor },
+          isDisabled && styles.disabled,
           style,
         ]}
       >
@@ -81,4 +77,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   text: { fontSize: 16, fontWeight: '700', letterSpacing: 0.3 },
+  primaryShadow: {
+    shadowOpacity: 0.35,
+    shadowRadius: 12,
+    shadowOffset: { width: 0, height: 6 },
+    elevation: 6,
+  },
+  disabled: { opacity: 0.5 },
 });

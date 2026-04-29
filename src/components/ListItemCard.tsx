@@ -66,7 +66,6 @@ function ListItemCardImpl({ item, onPress, variant = 'list' }: Props) {
         {
           backgroundColor: colors.card,
           borderColor: colors.border,
-          padding: isHeader ? 16 : 12,
           shadowColor: colors.shadow,
         },
         isHeader && styles.containerHeader,
@@ -102,7 +101,7 @@ function ListItemCardImpl({ item, onPress, variant = 'list' }: Props) {
           </Text>
         ) : null}
         <Text
-          style={[styles.title, { color: colors.text, fontSize: isHeader ? 20 : 15 }]}
+          style={[styles.title, isHeader && styles.titleHeader, { color: colors.text }]}
           numberOfLines={isHeader ? 3 : 2}
         >
           {item.title}
@@ -117,7 +116,7 @@ function ListItemCardImpl({ item, onPress, variant = 'list' }: Props) {
         <View style={styles.bottomRow}>
           {typeof item.price === 'number' ? (
             <View style={styles.priceCol}>
-              <Text style={[styles.price, { color: colors.text, fontSize: isHeader ? 22 : 16 }]}>
+              <Text style={[styles.price, isHeader && styles.priceHeader, { color: colors.text }]}>
                 ${item.price.toFixed(2)}
               </Text>
               {originalPrice ? (
@@ -174,10 +173,12 @@ const styles = StyleSheet.create({
     shadowRadius: 10,
     shadowOffset: { width: 0, height: 4 },
     elevation: 2,
+    padding: 12,
   },
   containerHeader: {
     marginHorizontal: 16,
     marginTop: 16,
+    padding: 16,
   },
   thumbWrap: { position: 'relative' },
   thumb: { width: 80, height: 80, borderRadius: 12 },
@@ -193,7 +194,8 @@ const styles = StyleSheet.create({
   discountText: { color: '#FFFFFF', fontSize: 11, fontWeight: '800' },
   body: { flex: 1, marginLeft: 14, justifyContent: 'space-between', minHeight: 80 },
   brand: { fontSize: 10, fontWeight: '800', letterSpacing: 1, marginBottom: 2 },
-  title: { fontWeight: '700', lineHeight: 20 },
+  title: { fontSize: 15, fontWeight: '700', lineHeight: 20 },
+  titleHeader: { fontSize: 20 },
   ratingRow: { marginTop: 6 },
   bottomRow: {
     flexDirection: 'row',
@@ -202,7 +204,8 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
   priceCol: { flexDirection: 'row', alignItems: 'baseline' },
-  price: { fontWeight: '800' },
+  price: { fontSize: 16, fontWeight: '800' },
+  priceHeader: { fontSize: 22 },
   originalPrice: {
     marginLeft: 6,
     fontSize: 12,

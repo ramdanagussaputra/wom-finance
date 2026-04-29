@@ -20,7 +20,6 @@ api.interceptors.response.use(
   res => res,
   err => {
     if (__DEV__) {
-      // eslint-disable-next-line no-console
       console.warn('[api]', err?.config?.url, err?.message);
     }
     return Promise.reject(err);

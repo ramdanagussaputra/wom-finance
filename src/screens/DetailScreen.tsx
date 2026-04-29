@@ -211,10 +211,7 @@ export function DetailScreen({ route, navigation }: Props) {
                 key={i}
                 style={[
                   styles.dot,
-                  {
-                    backgroundColor: i === imageIndex ? '#FFFFFF' : 'rgba(255,255,255,0.45)',
-                    width: i === imageIndex ? 18 : 6,
-                  },
+                  i === imageIndex ? styles.dotActive : styles.dotInactive,
                 ]}
               />
             ))}
@@ -415,6 +412,8 @@ const styles = StyleSheet.create({
     borderRadius: 3,
     marginHorizontal: 3,
   },
+  dotActive: { backgroundColor: '#FFFFFF', width: 18 },
+  dotInactive: { backgroundColor: 'rgba(255,255,255,0.45)', width: 6 },
   scrollContent: { paddingBottom: 48 },
   sheet: {
     borderTopLeftRadius: 28,
