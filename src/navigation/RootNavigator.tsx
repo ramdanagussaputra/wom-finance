@@ -42,7 +42,11 @@ export function RootNavigator() {
         {state.token ? (
           <>
             <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
-            <Stack.Screen name="Detail" component={DetailScreen} options={{ title: 'Details' }} />
+            <Stack.Screen
+              name="Detail"
+              component={DetailScreen}
+              options={{ headerShown: false, animation: 'slide_from_right' }}
+            />
           </>
         ) : (
           <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />

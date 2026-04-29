@@ -11,13 +11,15 @@ export type ListItem = {
   thumbnail?: string;
   price?: number;
   category?: string;
+  rating?: number;
+  stock?: number;
+  brand?: string;
+  discountPercentage?: number;
 };
 
 export type DetailItem = ListItem & {
   images?: string[];
-  rating?: number;
-  stock?: number;
-  brand?: string;
+  tags?: string[];
 };
 
 export type RootStackParamList = {
